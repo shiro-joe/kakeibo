@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang=ja>
+	<head>
+		<meta charset="utf-8">
+		<title>sample</title>
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+
+	  <h1>家計簿アプリ</h1>
+	  <div>
+		  <button onclick="location.href='/tags'">カテゴリ追加ページへ</button>
+	  <div>
+	    <form method="post" action="/expenses">
+	      <div class="title">
+	      <label for="name">タイトル</label>
+	      <input type="text"   name="title" required>
+	      </div>
+	      <div class="title">
+	      <label for="name">金額</label>
+	      <input type="number" name="amount" required>
+	      </div>
+	      <div class="title">
+	      <label for="name">分類タグ</label>
+	      <input type="number" name="TagId" required>
+	      </div>
+	      <div class="title">
+	      <label for="name">日付</label>
+	      <input type="text" name="date" required>
+	      </div>
+	      <div>
+		<input type="submit" value="登録" >
+	      </div>
+	    </form>
+	    </div>
+	  <div>
+	    {% for expense in expenses %}
+	    <div class="border border-radius">
+	      <p>{{ expense.id }} {{ expense.title }} {{expense.amount}} {{expense.date}}</p>
+	    </div>
+	    {% endfor %}
+	  </div>
+	  <h1>
+		  {{ sum }} 
+	  </h1>
+	</body>
+</html>
+
