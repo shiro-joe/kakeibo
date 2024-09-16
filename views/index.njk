@@ -43,11 +43,37 @@
 				<input class="btn btn-outline-primary" type="submit" value="カテゴリを指定">
 			</form>
 		</div>
-        {% for expense in expenses %}
+        <div class="mt-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">カテゴリ</th>
+                        <th scope="col">名前</th>
+                        <th scope="col">金額</th>
+                        <th scope="col">日付</th>
+                    </tr>
+                </thread>
+                <tbody>
+                    {% for expense in expenses %}
+                    <tr>
+                        <th scope="row">{{ expense.id }}</th>
+                        <td>{{ expense.Tag.name }}
+                        <td>{{ expense.title }}</td>
+                        <td>{{ expense.amount }}</td>
+                        <td>{{ expense.date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+        {# {% for expense in expenses %}
         <div class="border border-radius">
             <p>{{ expense.id }} : {{ expense.title }} {{expense.amount}} {{expense.date}}</p>
         </div>
-        {% endfor %}
+        {% endfor %} #}
     </div>
     <h1>
         {{ sum }}

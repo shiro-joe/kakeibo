@@ -66,9 +66,7 @@ export async function setupDatabase() {
     console.error("Unable to connect to the database:", error);
   }
   Tag.hasMany(Expense, {
-    foreignKey: {
-      allowNull: false,
-    },
+    foreignKey: "TagId",
   });
   Expense.belongsTo(Tag);
   await sequelize.sync();
